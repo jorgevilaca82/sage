@@ -4,8 +4,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import br.org.sage.app.core.models.PessoaJuridica;
+import br.org.sage.app.edu.UnidadeDeEnsino;
 import br.org.sage.app.edu.UnidadeDeEnsinoRepository;
 import lombok.extern.slf4j.Slf4j;
+
+import br.org.sage.app.edu.UnidadeDeEnsino.Tipo;
 
 @Configuration
 @Slf4j
@@ -16,7 +20,8 @@ class LoadDatabase {
 	@Bean
 	CommandLineRunner initDatabase(UnidadeDeEnsinoRepository repository) {
 		return args -> {
-//			log.info("Preloading " + repository.save(new UnidadeDeEnsino()));
+			PessoaJuridica pessoaJuridica = new PessoaJuridica("Instituto Federal", "36.2486.0001-20");
+			log.info("Preloading " + repository.save(new UnidadeDeEnsino(Tipo.INSTITUTO, pessoaJuridica, null, null)));
 //			log.info("Preloading " + repository.save(new UnidadeDeEnsino()));
 		};
 	}

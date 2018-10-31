@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 public class PessoaJuridica extends AbstractEntity {
 
 	private final String nomeFantasia;
+	
 	private final String cnpj;
 
 }

@@ -14,8 +14,10 @@ import javax.persistence.OneToOne;
 
 import br.org.sage.app.core.AbstractEntity;
 import br.org.sage.app.core.models.PessoaJuridica;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * Unidades de Ensino
@@ -26,6 +28,8 @@ import lombok.EqualsAndHashCode;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
+@AllArgsConstructor
+@NoArgsConstructor
 public class UnidadeDeEnsino extends AbstractEntity {
 
 	/**
@@ -37,14 +41,14 @@ public class UnidadeDeEnsino extends AbstractEntity {
 	/**
 	 * Representa a PJ associada à unidade
 	 */
-	@OneToOne(optional = false, cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private PessoaJuridica pessoaJuridica;
 
 	/**
 	 * Representa a Unidade ao qual esta é subordinada
 	 */
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "unidade_superior_id", nullable = false, updatable = false)
+	@ManyToOne(optional = true)
+	@JoinColumn(name = "unidade_superior_id", nullable = true, updatable = false)
 	private UnidadeDeEnsino unidadeSuperior;
 
 	/**
