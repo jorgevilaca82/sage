@@ -1,6 +1,10 @@
 package br.org.sage.app.core.models;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import br.org.sage.app.core.AbstractEntity;
 import lombok.AllArgsConstructor;
@@ -15,8 +19,12 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 public class PessoaJuridica extends AbstractEntity {
 
+	@NotBlank
+	@Length(min = 2, max = 255)
 	private final String nomeFantasia;
-	
+
+	@NotBlank
+	@CNPJ
 	private final String cnpj;
 
 }

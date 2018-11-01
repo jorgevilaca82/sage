@@ -20,7 +20,8 @@ class LoadDatabase {
 	@Bean
 	CommandLineRunner initDatabase(UnidadeDeEnsinoRepository repository) {
 		return args -> {
-			PessoaJuridica pessoaJuridica = new PessoaJuridica("Instituto Federal", "36.2486.0001-20");
+			repository.deleteAll();
+			PessoaJuridica pessoaJuridica = new PessoaJuridica("Instituto Federal", "77.718.351/0001-67");
 			log.info("Preloading " + repository.save(new UnidadeDeEnsino(Tipo.INSTITUTO, pessoaJuridica, null, null)));
 //			log.info("Preloading " + repository.save(new UnidadeDeEnsino()));
 		};

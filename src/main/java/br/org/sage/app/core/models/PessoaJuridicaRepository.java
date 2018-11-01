@@ -1,7 +1,9 @@
 package br.org.sage.app.core.models;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-public interface PessoaJuridicaRepository extends PagingAndSortingRepository<PessoaJuridica, Long> {
+@RepositoryRestResource(path = "pessoas-juridicas", itemResourceRel = "pessoasJuridicas")
+public interface PessoaJuridicaRepository extends JpaRepository<PessoaJuridica, Long> {
 
 }
