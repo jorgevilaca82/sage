@@ -9,6 +9,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import br.org.sage.app.core.models.PessoaFisica;
+import br.org.sage.app.core.models.PessoaFisica.EstadoCivil;
 import br.org.sage.app.edu.UnidadeDeEnsino;
 
 @SpringBootApplication
@@ -16,6 +18,11 @@ public class SageApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SageApplication.class, args);
+		
+		EstadoCivil[] estadoCivils = PessoaFisica.EstadoCivil.values();
+		for (EstadoCivil civil : estadoCivils) {
+			System.out.println(civil);
+		}
 	}
 	
 	@Bean

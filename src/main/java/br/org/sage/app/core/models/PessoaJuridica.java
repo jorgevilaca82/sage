@@ -3,6 +3,7 @@ package br.org.sage.app.core.models;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
@@ -29,5 +30,8 @@ public class PessoaJuridica extends AbstractAuditEntity {
 	@NotBlank
 	@CNPJ
 	private final String cnpj;
+	
+	@Email
+	private final String email;
 
 }
