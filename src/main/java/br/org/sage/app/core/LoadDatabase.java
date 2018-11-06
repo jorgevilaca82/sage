@@ -21,7 +21,7 @@ class LoadDatabase {
 	CommandLineRunner initDatabase(UnidadeDeEnsinoRepository repository) {
 		return args -> {
 			repository.deleteAll();
-			PessoaJuridica pessoaJuridica = new PessoaJuridica("Instituto Federal", "77.718.351/0001-67");
+			PessoaJuridica pessoaJuridica = new PessoaJuridica("Instituto Federal", "77.718.351/0001-67", null);
 			log.info("Preloading " + repository.save(new UnidadeDeEnsino(Tipo.INSTITUTO, pessoaJuridica, null, null)));
 //			log.info("Preloading " + repository.save(new UnidadeDeEnsino()));
 		};

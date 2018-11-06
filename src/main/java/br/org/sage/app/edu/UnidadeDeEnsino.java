@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.data.rest.core.annotation.RestResource;
+
 import br.org.sage.app.core.AbstractEntity;
 import br.org.sage.app.core.models.PessoaJuridica;
 import lombok.AllArgsConstructor;
@@ -41,7 +43,8 @@ public class UnidadeDeEnsino extends AbstractEntity {
 	/**
 	 * Representa a PJ associada à unidade
 	 */
-	@OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@RestResource(path = "pessoa-juridica", rel = "pessoaJuridica")
 	private PessoaJuridica pessoaJuridica;
 
 	/**

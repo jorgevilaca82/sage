@@ -49,3 +49,5 @@ hs_err_pid*
 /.nb-gradle/
 
 /bin
+
+/node_modules/
