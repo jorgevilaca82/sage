@@ -23,12 +23,12 @@ import lombok.ToString;
 @Getter
 @ToString
 @EqualsAndHashCode
-public class AbstractEntity implements Identifiable<Long> {
+public abstract class AbstractBaseEntity implements Identifiable<Long> {
 
 	private final @Id @GeneratedValue(strategy = GenerationType.AUTO) @JsonIgnore Long id;
 	private @Version Long version;
 
-	protected AbstractEntity() {
+	protected AbstractBaseEntity() {
 		this.id = null;
 	}
 }

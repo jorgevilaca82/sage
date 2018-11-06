@@ -1,14 +1,14 @@
 package br.org.sage.app.core.models;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CNPJ;
 
-import br.org.sage.app.core.AbstractEntity;
-import br.org.sage.app.edu.UnidadeDeEnsino;
+import br.org.sage.app.core.AbstractAuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,7 +19,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class PessoaJuridica extends AbstractEntity {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class PessoaJuridica extends AbstractAuditEntity {
 
 	@NotBlank
 	@Length(min = 2, max = 255)
@@ -28,8 +29,5 @@ public class PessoaJuridica extends AbstractEntity {
 	@NotBlank
 	@CNPJ
 	private final String cnpj;
-	
-	@OneToOne(mappedBy = "pessoaJuridica")
-	private UnidadeDeEnsino unidadeDeEnsino;
 
 }

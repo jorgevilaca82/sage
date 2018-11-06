@@ -5,10 +5,6 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 import java.util.List;
 
-import javax.validation.constraints.NotBlank;
-
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.br.CNPJ;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceSupport;
 import org.springframework.http.HttpStatus;
